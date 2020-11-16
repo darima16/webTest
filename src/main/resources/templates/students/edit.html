@@ -1,0 +1,58 @@
+<!DOCTYPE html>]
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <title>Изменение профиля</title>
+</head>
+<body>
+<h1 layout:fragment="header">Изменение профиля</h1>
+
+<div layout:fragment="content" class="container">
+    <form id="messageForm"
+          th:action="@{/(edit)}"
+          th:object="${student}"
+          action="#"
+          method="post">
+        <div th:if="${#fields.hasErrors('*')}"
+             class="alert alert-error">
+            <p th:each="error : ${#fields.errors('*')}"
+               th:text="${error}">
+                Validation error
+            </p>
+        </div>
+
+
+        <label for="name">Имя</label>
+        <input type="text"
+               th:field="*{name}"
+               th:class="${#fields.hasErrors('name')} ? 'field-error'"/>
+
+        <label for="secondName">Фамилия</label>
+        <input type="text"
+               th:field="*{secondName}"
+               th:class="${#fields.hasErrors('secondName')} ? 'field-error'"/>
+
+        <label for="lastName">Очество</label>
+        <input type="text"
+               th:field="*{lastName}"
+               th:class="${#fields.hasErrors('lastName')} ? 'field-error'"/>
+
+        <label for="bday">Дата Рождения</label>
+        <input type="text"
+               th:field="*{bday}"
+               th:class="${#fields.hasErrors('bday')} ? 'field-error'"/>
+
+        <label for="groupId">Номер группы</label>
+        <input type="text"
+               th:field="*{groupId}"
+               th:class="${#fields.hasErrors('groupId')} ? 'field-error'"/>
+
+        <div class="form-actions">
+            <input type="submit" value="Изменить"/>
+        </div>
+    </form>
+    </div>
+
+</body>
+</html>

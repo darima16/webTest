@@ -1,0 +1,42 @@
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+  layout:decorator="layout">
+  <head>
+    <title>Добавление нового студента</title>
+  </head>
+  <body>
+    <h1 layout:fragment="header">Добавление нового студента</h1>
+    <div layout:fragment="content"
+        class="container">
+      <div class="alert alert-success"
+          th:if="${globalMessage}"
+          th:text="${globalMessage}">
+        Some Success message
+      </div>
+      <div class="pull-right">
+        <a th:href="@{/}" href="list.html">
+          Все студенты
+        </a>
+      </div>
+<!--      <dl>-->
+<!--&lt;!&ndash;        <dt>Name</dt>&ndash;&gt;-->
+<!--&lt;!&ndash;        <dd id="name" th:text="${message.name}">123</dd>&ndash;&gt;-->
+<!--&lt;!&ndash;        <dt>Date</dt>&ndash;&gt;-->
+<!--&lt;!&ndash;        <dd id="created"&ndash;&gt;-->
+<!--&lt;!&ndash;            th:text="${#calendars.format(message.created)}">&ndash;&gt;-->
+<!--&lt;!&ndash;          July 11, 2012 2:17:16 PM CDT&ndash;&gt;-->
+<!--&lt;!&ndash;        </dd>&ndash;&gt;-->
+<!--        <dt>Number of group</dt>-->
+<!--        <dd id="groupId"-->
+<!--            th:text="${message.groupId}">-->
+<!--          A short summary...-->
+<!--        </dd>-->
+<!--        <dt>Second name</dt>-->
+<!--        <dd id="secondName"-->
+<!--            th:text="${message.secondName}">-->
+<!--          A detailed message that is longer than the summary.-->
+<!--        </dd>-->
+<!--      </dl>-->
+    </div>
+  </body>
+</html>

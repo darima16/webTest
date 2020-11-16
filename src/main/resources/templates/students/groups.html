@@ -1,0 +1,43 @@
+<!DOCTYPE html>]
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<head>
+    <title>Списки групп</title>
+</head>
+<body>
+<h1 layout:fragment="header">Списки групп</h1>
+
+<div layout:fragment="content" class="container">
+    <tr th:each="group : ${groups}">
+        <h3>Группа <span th:text="${group.groupName}">0000</span></h3>
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <td><b>Имя</b></td>
+                <td><b>Фамилия</b></td>
+                <td><b>Очество</b></td>
+                <td><b>Дата Рождения</b></td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${group.lstStudents.empty}">
+                <td colspan="3">
+                    Группа пуста
+                </td>
+            </tr>
+
+            <tr th:each="student : ${group.lstStudents}">
+                <td th:text="${student.name}">Olga</td>
+                <td th:text="${student.secondName}">Ivanova</td>
+                <td th:text="${student.lastName}">Petrovna</td>
+                <td th:text="${student.bday}">12.01.2000</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </tr>
+
+</div>
+</body>
+</html>

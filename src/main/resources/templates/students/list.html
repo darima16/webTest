@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+  layout:decorator="layout">
+  <head>
+    <title>Все студенты</title>
+  </head>
+  <body>
+    <h1 layout:fragment="header">Список студентов</h1>
+    <div layout:fragment="content" class="container">
+      <div class="pull-right">
+        <a href="form.html" th:href="@{/(form)}">Добавить нового студента</a>
+       </div>
+
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <td><b>ID</b></td>
+            <td><b>Имя</b></td>
+            <td><b>Фамилия</b></td>
+            <td><b>Очество</b></td>
+            <td><b>Дата Рождения</b></td>
+            <td><b>Номер группы</b></td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:if="${students.empty}">
+            <td colspan="3">
+              No messages
+            </td>
+          </tr>
+          <tr th:each="student : ${students}">
+            <td><a href="edit.html"
+                   th:href="@{'/' + ${student.ident}}"
+                   th:text="${student.ident}">
+              The summary
+            </a></td>
+            <td th:text="${student.name}">12</td>
+
+            <td th:text="${student.secondName}">Ivanova</td>
+            <td th:text="${student.lastName}">Petrovna</td>
+            <td th:text="${student.bday}">12.01.2000</td>
+            <td th:text="${student.groupId}">12</td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
